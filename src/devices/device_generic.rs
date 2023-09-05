@@ -29,8 +29,8 @@ impl Device for DeviceGeneric {
         let target_tdp = tdp as i32 * 1;
 
         let command = [
-            "intel_set_prefs",
-            &format!("-write-sensor cpu_max_perf {}", target_tdp),
+            "intel_set_prefs", "-write-sensor", "cpu_max_perf"
+            &format!("{}", target_tdp),
         ];
         match utils::run_command(&command) {
             Ok(_) => println!("Set TDP successfully!"),
