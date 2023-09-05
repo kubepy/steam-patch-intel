@@ -26,7 +26,7 @@ impl Device for DeviceGeneric {
 
     fn set_tdp(&self, tdp: i8) {
         // Update TDP
-        let target_tdp = tdp as i32 * 1000;
+        let target_tdp = tdp as i32 * 1;
 
         let command = [
             "intel_set_prefs",
