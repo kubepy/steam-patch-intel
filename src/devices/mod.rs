@@ -54,7 +54,7 @@ pub fn create_device() -> Option<Box<dyn Device>> {
                 }
 
                 // Any other device
-                _ => Some(Box::new(DeviceGeneric::new(25))),
+                _ => Some(Box::new(DeviceGeneric::new(100))),
             }
         }
         None => None,
