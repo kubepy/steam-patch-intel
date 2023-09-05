@@ -27,13 +27,10 @@ impl Device for DeviceGeneric {
     fn set_tdp(&self, tdp: i8) {
         // Update TDP
         let target_tdp = tdp as i32 * 1000;
-        let boost_tdp = target_tdp + 2000;
 
         let command = [
-            "ryzenadj",
-            &format!("--stapm-limit={}", target_tdp),
-            &format!("--fast-limit={}", boost_tdp),
-            &format!("--slow-limit={}", target_tdp),
+            "intel_set_prefs",
+            &format!("cpu_max_perf {}", target_tdp),
         ];
         match utils::run_command(&command) {
             Ok(_) => println!("Set TDP successfully!"),
